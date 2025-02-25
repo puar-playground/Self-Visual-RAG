@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ## Retrieval Inference
 We trained two models using LoRA: [Col-Phi-3-V](https://huggingface.co/puar-playground/Col-Phi-3-V) and [Col-InternVL2](https://huggingface.co/puar-playground/Col-InternVL2-4B). 
-You can test the retrieval model using the `run_test.py` script with demo data (demo_data/slidevqa_dev.json):
+You can test the retrieval model using the `run_test.py` script with demo data [slidevqa_dev.json](https://github.com/puar-playground/SV-RAG/blob/main/demo_data/slidevqa_dev.json):
 ```
 python test_retrieval --model InternVL2
 python test_retrieval --model Phi
