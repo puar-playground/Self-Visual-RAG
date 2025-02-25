@@ -1,0 +1,40 @@
+config:
+  (): colpali_engine.trainer.colmodel_training.ColModelTrainingConfig
+  output_dir: !path models/colInternVL2-4b
+  processor:
+    (): colpali_engine.utils.transformers_wrappers.EmptyWrapper
+    model_name: "OpenGVLab/InternVL2-4B"
+    class_to_instanciate: !ext colpali_engine.models.ColInternProcessor
+  tokenizer:
+    () : colpali_engine.utils.transformers_wrappers.AutoTokenizerWrapper
+    pretrained_model_name_or_path: "OpenGVLab/InternVL2-4B"
+    trust_remote_code: True
+  model:
+    (): colpali_engine.utils.transformers_wrappers.AllPurposeWrapper
+    class_to_instanciate: !ext colpali_engine.models.ColInternvl2_4b
+    pretrained_model_name_or_path: "OpenGVLab/InternVL2-4B"
+    torch_dtype:  !ext torch.bfloat16
+    # attn_implementation: "eager"
+    # device_map: "auto"
+
+
+  dataset_loading_func: !ext colpali_engine.utils.dataset_transformation.load_train_set
+
+  model_type: "OpenGVLab/InternVL2-4B"
+
+  run_eval: true
+  loss_func:
+    (): colpali_engine.loss.late_interaction_losses.ColbertPairwiseCELoss
+  tr_args: !import ./scripts/configs/tr_args/default_tr_args.yaml
+  peft_config:
+    (): peft.LoraConfig
+    r: 8
+    lora_alpha: 32
+    lora_dropout: 0.1
+    init_lora_weights: "gaussian"
+    bias: "none"
+    task_type: "FEATURE_EXTRACTION"
+
+    # 4B
+    target_modules: '(.*(language_model).*(qkv_proj|gate_up_proj|v_proj|o_proj|down_proj|k_proj|q_proj|up_proj|gate_proj).*$)'
+    
