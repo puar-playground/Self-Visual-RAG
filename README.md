@@ -5,7 +5,15 @@ This is an implementation of the Col-retriever model in the [SV-RAG](https://arx
 
 These models are fine-tuned with LoRA adapters for document retrieval task.
 
-## Inference
+## Installation
+```
+conda create -n svrag python=3.10 -y
+conda activate svrag
+pip install -e .
+pip install -r requirements.txt
+```
+
+## Retrieval Inference
 We trained two models using LoRA: [Col-Phi-3-V](https://huggingface.co/puar-playground/Col-Phi-3-V) and [Col-InternVL2](https://huggingface.co/puar-playground/Col-InternVL2-4B). 
 You can test the retrieval model using the `run_test.py` script with demo data (demo_data/slidevqa_dev.json):
 ```
@@ -13,6 +21,19 @@ python run_test.py --model ColInternVL2
 python run_test.py --model ColPhi
 ```
 This script will demonstrate retrieval performance on sample query data.
+
+## Answer Generation
+
+
+## Training
+Col-InterVL2-4B model:
+```
+torchrun --nproc_per_node=8 --master_port=20001 scripts/train/train_colbert.py train_colInternVL2_4b_model.yaml
+```
+Col-Phi-3-V model:
+```
+torchrun --nproc_per_node=8 --master_port=20001 scripts/train/train_colbert.py train_colphi_model.yaml
+```
 
 ## 📖 Reference
 ```
