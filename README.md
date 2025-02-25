@@ -17,13 +17,17 @@ pip install -r requirements.txt
 We trained two models using LoRA: [Col-Phi-3-V](https://huggingface.co/puar-playground/Col-Phi-3-V) and [Col-InternVL2](https://huggingface.co/puar-playground/Col-InternVL2-4B). 
 You can test the retrieval model using the `run_test.py` script with demo data (demo_data/slidevqa_dev.json):
 ```
-python run_test.py --model ColInternVL2
-python run_test.py --model ColPhi
+python test_retrieval --model InternVL2
+python test_retrieval --model Phi
 ```
-This script will demonstrate retrieval performance on sample query data.
 
-## Answer Generation
-
+## Self-Vision-RAG Inference
+These script demonstrate the full Self-Vision-RAG pipeline on demo query data.
+```
+python test_sv_rag --model InternVL2 --k 5
+python test_sv_rag --model Phi
+```
+For the InternVL2 backbone, the VLLM supports multiple image inputs. You can use the `--k` flag to control the top-k retrieved images used for answer generation. However, increasing k will significantly increase memory consumption.
 
 ## Training
 Col-InterVL2-4B model:
