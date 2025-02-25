@@ -1,15 +1,20 @@
 # SV-RAG
-This is an implementation of the Col-retriever model based on the source code of [ColPali)](https://github.com/illuin-tech/colpali) for base model: [Phi-3-V](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct) and [InternVL2](https://huggingface.co/OpenGVLab/InternVL2-4B). 
+This is an implementation of the Col-retriever model in the [SV-RAG](https://arxiv.org/abs/2411.01106) paper, adapted from the [ColPali](https://github.com/illuin-tech/colpali) repository. This project integrates two powerful base models: 
+- [Phi-3-V](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct) (Microsoft)
+- [InternVL2](https://huggingface.co/OpenGVLab/InternVL2-4B). (OpenGVLab)
+
+These models are fine-tuned with LoRA adapters for document retrieval task.
 
 ## Inference
-We trained two models using LoRA: [Col-Phi-3-V](https://huggingface.co/puar-playground/Col-Phi-3-V) and [Col-InternVL2](https://huggingface.co/puar-playground/Col-InternVL2-4B). The `run_test.py` provides a simple example for retrieval.
+We trained two models using LoRA: [Col-Phi-3-V](https://huggingface.co/puar-playground/Col-Phi-3-V) and [Col-InternVL2](https://huggingface.co/puar-playground/Col-InternVL2-4B). 
+You can test the retrieval model using the `run_test.py` script with demo data (demo_data/slidevqa_dev.json):
 ```
 python run_test.py --model ColInternVL2
 python run_test.py --model ColPhi
 ```
-The script will demonstrate the retrieval model using demo data `demo_data/slidevqa_dev.json`.
+This script will demonstrate retrieval performance on sample query data.
 
-## Reference
+## 📖 Reference
 ```
 @article{chen2024lora,
   title={LoRA-Contextualizing Adaptation of Large Multimodal Models for Long Document Understanding},
