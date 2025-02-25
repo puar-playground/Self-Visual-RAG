@@ -1,5 +1,5 @@
 from typing import ClassVar, Optional
-
+from PIL import Image
 import torch
 from torch import nn
 from colpali_engine.models.phi3v.modeling_phi3_v import Phi3VPreTrainedModel, Phi3VModel
@@ -18,7 +18,6 @@ class ColPhi(Phi3VPreTrainedModel):
         super(ColPhi, self).__init__(config)
         model: Phi3VModel = Phi3VModel(config)
         self.model = model
-        
         self.dim = 128
         self.custom_text_proj = nn.Linear(self.model.config.hidden_size, self.dim)
         
@@ -57,3 +56,4 @@ class ColPhi(Phi3VPreTrainedModel):
         proj = proj / proj.norm(dim=-1, keepdim=True)
         proj = proj * kwargs["attention_mask"].unsqueeze(-1)
         return proj
+    
