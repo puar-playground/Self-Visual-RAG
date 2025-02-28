@@ -1,4 +1,4 @@
-# Self-Vision-RAG
+# Self-Visual-RAG
 This repository provides an unofficial implementation of the Col-retriever model, developed based on the methodology presented in the [**SV-RAG**](https://arxiv.org/abs/2411.01106)**: LoRA-Contextualizing Adaptation of MLLMs for Long Document Understanding** paper, adapted from the [ColPali](https://github.com/illuin-tech/colpali) repository. This project integrates two powerful base models: 
 - [Phi-3-V](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct) (Microsoft)
 - [InternVL2](https://huggingface.co/OpenGVLab/InternVL2-4B). (OpenGVLab)
@@ -21,8 +21,8 @@ python test_retrieval --model InternVL2
 python test_retrieval --model Phi
 ```
 
-## Self-Vision-RAG Inference
-These script demonstrate the full Self-Vision-RAG pipeline on demo query data.
+## Self-Visual-RAG Inference
+These script demonstrate the full Self-Visual-RAG pipeline on demo query data.
 ```
 python test_sv_rag --model InternVL2 --k 5
 python test_sv_rag --model Phi
