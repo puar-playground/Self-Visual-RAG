@@ -1,11 +1,10 @@
 # Self-Visual-RAG
-![image](overview.png)
 This repository provides an unofficial implementation of the Col-retriever model, developed based on the methodology presented in the [**SV-RAG**](https://arxiv.org/abs/2411.01106)**: LoRA-Contextualizing Adaptation of MLLMs for Long Document Understanding** paper, adapted from the [ColPali](https://github.com/illuin-tech/colpali) repository. This project integrates two powerful base models: 
 - [Phi-3-V](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct) (Microsoft)
 - [InternVL2](https://huggingface.co/OpenGVLab/InternVL2-4B). (OpenGVLab)
 
 These models are fine-tuned with LoRA adapters for document retrieval task.
-
+![image](overview.png)
 ## Installation
 ```
 conda create -n svrag python=3.10 -y
