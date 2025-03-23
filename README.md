@@ -43,6 +43,15 @@ torchrun --nproc_per_node=8 --master_port=20001 scripts/train/train_colbert.py t
 
 ## 📖 Reference
 ```
+@inproceedings{
+chen2025svrag,
+title={{SV}-{RAG}: Lo{RA}-Contextualizing Adaptation of  {MLLM}s for Long Document Understanding},
+author={Jian Chen and Ruiyi Zhang and Yufan Zhou and Tong Yu and Franck Dernoncourt and Jiuxiang Gu and Ryan A. Rossi and Changyou Chen and Tong Sun},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=FDaHjwInXO}
+}
+
 @article{chen2024lora,
   title={LoRA-Contextualizing Adaptation of Large Multimodal Models for Long Document Understanding},
   author={Chen, Jian and Zhang, Ruiyi and Zhou, Yufan and Yu, Tong and Dernoncourt, Franck and Gu, Jiuxiang and Rossi, Ryan A and Chen, Changyou and Sun, Tong},
